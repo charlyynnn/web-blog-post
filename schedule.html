@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>BSCS Educational Tour</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<style>
+    .parent {
+  perspective: 1000px;
+  display: flex;
+  
+}
+h2{
+    font-size: 3em;
+    text-align: center;
+    margin-top: 20px;
+}
+h3{
+    font-size: 1em;
+    text-align: center;
+}
+@media screen and (max-width: 375px) {
+  .parent{
+    width: 350px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+
+.card {
+  padding-top: 50px;
+  border: 3px solid rgb(255, 255, 255);
+  transform-style: preserve-3d;
+  background-size: 160px 160px;
+  background-position: 0 0, 0 0;
+  background-color: #f0f0f0;
+  width: 100%;
+  box-shadow: rgba(142, 142, 142, 0.3) 0px 30px 30px -10px;
+  transition: all 0.5s ease-in-out;
+}
+
+.card:hover {
+  background-position: -100px 100px, -100px 100px;
+  transform: rotate3d(0.5, 1, 0, 30deg);
+}
+
+.content-box {
+  background: #627254;
+   border-radius: 10px 10px 10px 10px; 
+  transition: all 0.5s ease-in-out;
+  padding: 60px 25px 25px 25px;
+  transform-style: preserve-3d;
+}
+
+.content-box .card-title {
+  display: inline-block;
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 50px);
+}
+
+.content-box .card-title:hover {
+  transform: translate3d(0px, 0px, 60px);
+}
+
+.content-box .card-content {
+  margin-top: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #f2f2f2;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 30px);
+}
+
+.content-box .card-content:hover {
+  transform: translate3d(0px, 0px, 60px);
+}
+.date-box {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  height: 50px;
+  width: 90px;
+  background: white;
+  border: 1px solid #627254;
+   border-radius: 10px; 
+  padding: 10px;
+  transform: translate3d(0px, 0px, 80px);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 17px 10px -10px;
+}
+
+.date-box span {
+  display: block;
+  text-align: center;
+}
+
+.date-box .month {
+  color: #627254;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.all{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.notification {
+    margin-bottom:15px;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  position: relative;
+  width: 18rem;
+  height: 8rem;
+  background: #627254;
+  border-radius: 1rem;
+  overflow: hidden;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 16px;
+  --gradient: linear-gradient(to bottom, white, white,white);
+  --color: #32a6ff
+  
+}
+
+.notification:before {
+  position: absolute;
+  content: "";
+  inset: 0.0625rem;
+  border-radius: 0.9375rem;
+  background: #627254;
+  z-index: 2
+}
+
+.notification:after {
+  position: absolute;
+  content: "";
+  width: 0.25rem;
+  inset: 0.65rem auto 0.65rem 0.5rem;
+  border-radius: 0.125rem;
+  background: var(--gradient);
+  transition: transform 300ms ease;
+  z-index: 4;
+}
+
+.notification:hover:after {
+  transform: translateX(0.15rem)
+}
+
+.notititle {
+  color:white;
+  padding: 0.65rem 0.25rem 0.4rem 1.25rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: transform 300ms ease;
+  z-index: 5;
+}
+
+.notification:hover .notititle {
+  transform: translateX(0.15rem)
+}
+
+.notibody {
+  color: white;
+  padding: 0 1.25rem;
+  transition: transform 300ms ease;
+  z-index: 5;
+}
+
+.notification:hover .notibody {
+  transform: translateX(0.25rem)
+}
+
+.notiglow,
+.notiborderglow {
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle closest-side at center, white, transparent);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.notiglow {
+  z-index: 3;
+}
+
+.notiborderglow {
+  z-index: 1;
+}
+
+.notification:hover .notiglow {
+  opacity: 0.1
+}
+
+.notification:hover .notiborderglow {
+  opacity: 0.1
+}
+
+.note {
+  color: var(--color);
+  position: fixed;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 0.9rem;
+  width: 75%;
+}
+
+ 
+</style>
+<body class="index-page">
+    <header id="header" class="header d-flex flex-column justify-content-center">
+        <div class="logo"style="margin-bottom:50px;margin-left:10px;">
+            <h3>BSCS Educational Tour</h3>
+        </div>
+        <div class="search-container">
+            <input type="text" id="searchInput" name="text" class="search-input" required="" placeholder="Type to search...">
+            <div class="search-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                    <title>Search</title>
+                    <path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path>
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path>
+                </svg>
+            </div>
+        </div>
+        <i class="header-toggle d-xl-none bi bi-list"></i>
+        <nav id="navmenu" class="navmenu">
+            <ul>
+                <li><a href="index.html"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
+                <li><a href="schedule.html" class="active"><i class="bi bi-calendar-check navicon"></i><span>Schedule</span></a></li>
+                <li><a href="speakers.html"><i class="bi bi-person-fill navicon"></i><span>Speakers</span></a></li>
+                <li><a href="venue.html"><i class="bi bi-geo-alt navicon"></i><span>Venue</span></a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+  <main class="main">
+    <section id="home" class="home section light-background">
+      <video autoplay muted loop>
+        <source src="assets/img/bg-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+      <div class="container" data-aos="zoom-out">
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <h2><span class="typed" data-typed-items="The Schedule"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></h2>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Hero Section -->
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
+        <div class="container section-title" data-aos="fade-up">
+          <h2>SCHEDULE</h2>
+        </div>
+      
+        <div class="container">
+          <div class="isotope-layout" data-default-filter=".filter-day1" data-layout="masonry" data-sort="original-order">
+            <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+              <li data-filter=".filter-day1" class="filter-day">DAY 1</li>
+              <li data-filter=".filter-day2" class="filter-day">DAY 2</li>
+              <li data-filter=".filter-day3" class="filter-day">DAY 3</li>
+              <li data-filter=".filter-day4" class="filter-day">DAY 4</li>
+              <li data-filter=".filter-day5" class="filter-day">DAY 5</li>
+              <li data-filter=".filter-day6" class="filter-day">DAY 6</li>
+              <li data-filter=".filter-day7" class="filter-day">DAY 7</li>
+              <li data-filter=".filter-day8" class="filter-day">DAY 8</li>
+            </ul><!-- End Portfolio Filters -->
+      
+            <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+      
+              <div id="day1" class="col-lg-12 col-md-12 portfolio-item isotope-item filter-day1">
+                <h2>Schedule for DAY 1</h2>
+                <h3>June 17, 2024 (MONDAY)</h3>
+                <div class="parent">
+                    <div class="card"style="width:1500px; text-align:center;">
+                        <div class="content-box"style="height:150px;">
+                            <span class="card-title">Arrival in Manila via Cebu pacific</span>
+                        </div>
+                        <div class="date-box">
+                            <span class="month">11:00am</span>
+                        </div>
+                    </div>
+                    <div class="card"style="width:1500px; text-align:center; ">
+                        <div class="content-box"style="height:150px;">
+                            <span class="card-title">Check-in & Lunch at DJM Dormitory</span>
+                        </div>
+                        <div class="date-box">
+                            <span class="month">12:00pm</span>
+                        </div>
+                    </div>
+                    <div class="card"style="width:1500px; text-align:center; ">
+                        <div class="content-box"style="height:150px;">
+                            <span class="card-title">City tour</span>
+                        </div>
+                        <div class="date-box">
+                            <span class="month">1:30pm</span>
+                        </div>
+                    </div>
+                    <div class="card"style="width:1500px; text-align:center;">
+                        <div class="content-box"style="height:150px;">
+                            <span class="card-title">Dinner  at DJM Dormitory/rest</span>
+                        </div>
+                        <div class="date-box">
+                            <span class="month">6:30pm</span>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+      
+              <div id="day2" class="col-lg-12 col-md-12 portfolio-item isotope-item filter-day2">
+                <h2>Schedule for DAY 2</h2>
+                <h3>June 18, 2024 (TUESDAY)</h3>
+                <div class="all">
+                <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">4:30am</div>
+                    <div class="notibody">Breakfast at DJM Dormitory</div>
+                  </div>
+
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">5:30am</div>
+                    <div class="notibody">Proceed to Subic, Olongapo</div>
+                  </div>
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">9:00am</div>
+                    <div class="notibody">Visit PAGASA WEATHER STATION AND FIRST AVIATION ACADEMY</div>
+                  </div>
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">12:00pm</div>
+                    <div class="notibody">Packed Lunch</div>
+                  </div>
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">1:00pm</div>
+                    <div class="notibody">Visit VESSEL TRAFFIC MANAGEMENT SYSTEM</div>
+                  </div>
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">6:30pm</div>
+                    <div class="notibody">Dinner at DJM Dormitory</div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div id="day3" class="col-lg-12 col-md-12 portfolio-item isotope-item filter-day3">
+                <h2>Schedule for DAY 3</h2>
+                <h3>June 19, 2024 (WEDNESDAY)</h3>
+                <div class="all">
+                <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">6:00am</div>
+                    <div class="notibody">Breakfast at DJM Dormitory</div>
+                  </div>
+
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">7:30am</div>
+                    <div class="notibody">Proceed to MAKATI</div>
+                  </div>
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">9:00am</div>
+                    <div class="notibody">Visit QBO INNOVATION HUB</div>
+                  </div>
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">12:00pm</div>
+                    <div class="notibody">Packed Lunch</div>
+                  </div>
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">1:30pm</div>
+                    <div class="notibody">Visit PACKETWORX INC. </div>
+                  </div>
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">6:30pm</div>
+                    <div class="notibody">Dinner at DJM Dormitory</div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="day4" class="col-lg-12 col-md-12 portfolio-item isotope-item filter-day4">
+                <h2>Schedule for DAY 4</h2>
+                <h3>June 20, 2024 (THURSDAY)</h3>
+                <div class="all">
+                <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">6:00am</div>
+                    <div class="notibody">Breakfast at DJM Dormitory</div>
+                  </div>
+
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">7:30am</div>
+                    <div class="notibody">Proceed to LRTA</div>
+                  </div>
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">9:00am</div>
+                    <div class="notibody">Visit LIGHT RAIL TRANSIT AUTHORITY -LINE 2</div>
+                  </div>
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">11:30am</div>
+                    <div class="notibody">Lunch at DJM Dormitory</div>
+                  </div>
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">12:30pm</div>
+                    <div class="notibody">Proceed to NMP </div>
+                  </div>
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">6:30pm</div>
+                    <div class="notibody">Dinner at DJM Dormitory</div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="day5" class="col-lg-12 col-md-12 portfolio-item isotope-item filter-day5">
+                <h2>Schedule for DAY 5</h2>
+                <h3>June 21, 2024 (FRIDAY)</h3>
+                <div class="all">
+                <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">6:00am</div>
+                    <div class="notibody">Breakfast at DJM Dormitory</div>
+                  </div>
+
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">7:00am</div>
+                    <div class="notibody">Proceed to MAKATI</div>
+                  </div>
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">8:30am</div>
+                    <div class="notibody">Visit 98LABS INC. </div>
+                  </div>
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">11:30am</div>
+                    <div class="notibody">Lunch at DJM Dormitory</div>
+                  </div>
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">12:30pm</div>
+                    <div class="notibody">Proceed to NOVALICHES </div>
+                  </div>
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">2:00pm</div>
+                    <div class="notibody">vISIT HYTEC POWER INC.</div>
+                  </div>
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">6:30pm</div>
+                    <div class="notibody">Dinner at DJM Dormitory</div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="day6" class="col-lg-12 col-md-12 portfolio-item isotope-item filter-day6">
+                <h2>Schedule for DAY 6</h2>
+                <h3>June 22, 2024 (SATURDAY)</h3>
+                <div class="all">
+                <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">1:00am</div>
+                    <div class="notibody">Proceed to Baguio City</div>
+                  </div>
+
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">6:30am</div>
+                    <div class="notibody">Start Baguio city tour</div>
+                  </div>
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">8:30am</div>
+                    <div class="notibody">Proceed to prince plaza hotel / breakfast at prince plaza hotel and visit Philippine Military Academy</div>
+                  </div>
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">12:00pm</div>
+                    <div class="notibody">Lunch at Prince Plaza Hotel</div>
+                  </div>
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">1:30pm</div>
+                    <div class="notibody">Continuation of Baguio Tour </div>
+                  </div>
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">6:30pm</div>
+                    <div class="notibody">Dinner at Prince Plaza Hotel</div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="day7" class="col-lg-12 col-md-12 portfolio-item isotope-item filter-day7">
+                <h2>Schedule for DAY 7</h2>
+                <h3>June 23, 2024 (SUNDAY)</h3>
+                <div class="all">
+                <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">7:00am</div>
+                    <div class="notibody">Breakfast at Prince Plaza Hotel </div>
+                    <div class="notibody">Freehours on your own </div>
+                  </div>
+
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">11:00am</div>
+                    <div class="notibody">Lunch at Prince Plaza Hotel</div>
+                  </div>
+               
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">12:00pm</div>
+                    <div class="notibody">Check-out at Prince Plaza Hotel / Back to Manila</div>
+                  </div>
+                
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">6:30pm</div>
+                    <div class="notibody">Estimated time of arrival in Manila dinner at DJM Dormitory / Rest</div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="day8" class="col-lg-12 col-md-12 portfolio-item isotope-item filter-day8">
+                <h2>Schedule for DAY 8</h2>
+                <h3>June 24, 2024 (MONDAY)</h3>
+                <div class="all">
+                <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">6:00am</div>
+                    <div class="notibody">Breakfast at DJM Dormitory </div>
+                  </div>
+
+                  <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle">12:00pm</div>
+                    <div class="notibody">Check-out at DJM Dormitory / Proceed to the Airport</div>
+                  </div>
+               
+                </div>
+             
+        <script>
+            $(document).ready(function() {
+  $('.filter-day').on('click', function() {
+    var dayFilter = $(this).data('filter'); // Get the filter value for the clicked day
+    $('.portfolio-filters .filter-active').removeClass('filter-active'); // Remove active class from all filters
+    $(this).addClass('filter-active'); // Add active class to clicked filter
+
+    $('.isotope-item').hide(); // Hide all items initially
+    $(dayFilter).show(); // Show items corresponding to the clicked day
+  });
+});
+
+        </script>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+  </main>
+
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
